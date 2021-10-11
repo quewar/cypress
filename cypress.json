@@ -1,0 +1,14 @@
+{
+  "env": {
+    "username": "YWdlbnRl",
+    "password": "Q2xvdWQyMDIxKg==",
+    "cypress-react-selector": {
+      "root": "#root"
+    }
+  },
+ 
+  "baseUrl": "https://testapp.helppeoplecloud.com",
+  "projectId": "2oepz1",
+  "pageLoadTimeout": 60000,
+  "failOnStatusCode": false
+}
