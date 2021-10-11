@@ -3,7 +3,7 @@ import formulario from "../3-Helpdesk/formulario.js"
 import gestion from "../3-Helpdesk/gestin.js"
 import nota from "../3-Helpdesk/nota"
 import orden from "../3-Helpdesk/cerrar"
-import cerrar from "../3-Helpdesk/cerrar";
+
 
 //Cypress.config()
 //Cypress.session.SavedAllSessions()
