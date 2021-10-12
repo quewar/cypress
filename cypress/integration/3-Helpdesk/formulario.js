@@ -22,7 +22,7 @@ class formulario {
         cy.get('span').contains('ADM')
 
 
-        if (cy.log(roles[0]) === "ADM") {
+        if (cy.log(roles[0]).contains('ADM') === "ADM") {
             cy.get('.form-group').within(() => {
 
                 cy.get('path').eq(2).click({ force: true })
