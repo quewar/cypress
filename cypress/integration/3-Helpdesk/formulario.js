@@ -16,10 +16,10 @@ class formulario {
         //cy.get('.react-autosuggest__input').type('{enter}').then(nombres => {
         //    cy.request('GET', '/')        //})
         cy.get('div.widget-heading').eq(0).contains('AGENTE DE MESA').within((rol) => {
-            cy.log(rol)
+            cy.get(rol)
 
         })
-        cy.get('span').contains('ADM').should('visible')
+        cy.get('span').contains('ADM')
 
 
         if (cy.log(roles[0]) === "ADM") {
