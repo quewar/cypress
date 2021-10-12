@@ -4,26 +4,23 @@ import solicitud from "./solicitud";
 
 describe('Primer Modulo de Pruebas', () => {
     before(() => Cypress.Cookies.preserveOnce('$_SESSION'));
+    before(() => cy.visit('/'));
+
     it.skip('Pruebas URL', () => {
-
         cy.pause();
-
         enlace.elementsUrl();
-
-
     });
 
     it.skip('Pruebas Login', () => {
 
         login.elementssesion();
 
-
-
     });
 
     it('Pruebas Solicitud', () => {
-        cy.visit('/');
-       cy.login('agente','Cloud2021*')
+    
+cy.login('agente','Cloud2021*')
+
         solicitud.elementssol();
 
     });

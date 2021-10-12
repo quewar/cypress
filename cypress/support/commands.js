@@ -51,7 +51,7 @@ Cypress.Commands.add('sol', (asunto, formato, flujo, descripcion) => {
         cy.get($caso).should('have.text', 'Indique los componentes de la hamburguesa:\n').dblclick();
         cy.get("iframe").then(($iframe) => {
           const $body = $iframe.contents().find('body');
-          cy.wrap($body).click().type(descripcion);
+          cy.wrap($body).click()
         });
 
       } else if (formato == 'Datos de usuario{enter}') {

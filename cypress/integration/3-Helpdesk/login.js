@@ -1,7 +1,7 @@
 
 
 
-const testx = require('../../fixtures/login.json');
+const testx = require('../../fixtures/dataprocess/login.json');
 
 
 

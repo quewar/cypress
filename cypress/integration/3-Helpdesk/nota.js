@@ -17,6 +17,7 @@ class nota {
             cy.wrap($body).click().type('La solicitud ya esta solucionada');
         });
         cy.get('button.btn.btn-primary').contains('Crear').click({ force: true });
+        cy.wait(5000)
         cy.get('.Toastify__toast-body').contains('Nota creada con Éxito')
 
 

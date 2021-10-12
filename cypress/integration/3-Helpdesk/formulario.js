@@ -1,4 +1,9 @@
+var roles = [
 
+    "ADM",
+    "UDA"
+
+]
 
 
 class formulario {
@@ -10,24 +15,35 @@ class formulario {
         //cy.wait(2000);
         //cy.get('.react-autosuggest__input').type('{enter}').then(nombres => {
         //    cy.request('GET', '/')        //})
+        cy.get('div.widget-heading').eq(0).contains('AGENTE DE MESA').within((rol) => {
+            cy.log(rol)
 
-        cy.get('.form-group').within(() => {
-
-            cy.get('path').eq(2).click({ force: true })
-            cy.get('div.css-1g6gooi')
-                .eq(2)
-                .find('div.react-select__input').then(() => {
-                    cy.wait(5000)
-                    cy.get('input')
-                        .eq(4)
-                        .type('Mesa de Servicios{enter}', { force: true })
-                    cy.wait(5000)
-                    cy.get('input')
-                        .eq(5)
-                        .type('Solicitud de documentos{enter}{enter}', { force: true })
-                    cy.wait(5000)
-                })
         })
+        cy.get('span').contains('ADM').should('visible')
+
+
+        if (cy.log(roles[0]) === "ADM") {
+            cy.get('.form-group').within(() => {
+
+                cy.get('path').eq(2).click({ force: true })
+                cy.get('div.css-1g6gooi')
+                    .eq(2)
+                    .find('div.react-select__input').then(() => {
+                        cy.wait(5000)
+                        cy.get('input')
+                            .eq(4)
+                            .type('Mesa de Servicios{enter}', { force: true })
+                        cy.wait(5000)
+                        cy.get('input')
+                            .eq(5)
+                            .type('Solicitud de documentos{enter}', { force: true })
+                        cy.wait(5000)
+                    })
+            })
+        } else {
+
+            cy.log('error')
+        }
         /*cy.get('.btn-group > .btn-link').click({ force: true })
 
         cy.get('div.rm-pointers.dropdown-menu-lg.dropdown-menu.dropdown-menu-right.show').within(() => {
@@ -36,7 +52,7 @@ class formulario {
 
         })*/
 
-       
+
 
 
         //.type('{insert}');
