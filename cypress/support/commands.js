@@ -109,11 +109,21 @@ Cypress.Commands.add('logout', () => {
 
 
 Cypress.Commands.add('login', (username, password) => {
+  const url = 'https://test.helppeoplecloud.com/helppeople_api/api//security'
 
+  cy.intercept('POST', `${url}/gettoken`).as('user')
   cy.get('#username').type(username);
   cy.get('#password').type(password);
   cy.get('.btn > span').click({ force: true });
-
+  cy.wait(2000)
+  cy.get('@user').then(xhr => xhr.response.body.Token).then(($jwt) => {
+    cy.request('GET', `${url}/GetUserPermisions?token=${$jwt}`).as('permisos')
+  })
+  cy.wait(2000)
+  cy.get('@permisos.all').then(xhr => xhr.body.Values.UserInfo.Name).then(($usuario) => {
+    cy.request('GET', `${url}/GetUserActive?usuario=${$usuario}`).as('usuario')
+  })
+  cy.get('@usuario')
 });
 
 Cypress.Commands.add('getAndSetToken', () => {

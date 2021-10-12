@@ -6,9 +6,8 @@
       "root": "#root"
     }
   },
- 
   "baseUrl": "https://testapp.helppeoplecloud.com",
-  "projectId": "2oepz1",
+  "projectId": "kmprwc",
   "pageLoadTimeout": 60000,
   "failOnStatusCode": false
 }

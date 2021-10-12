@@ -17,6 +17,7 @@ class login {
 
                 if (tests.test === 'test#4') {
                     cy.get('head > title').should('contain.text', tests.expected);
+                    cy.logout()
                 } else if (tests.test === 'test#1' || tests.name === 'test#2') {
                     cy.get('#root > div.Toastify > div').should('contain.text', tests.expected);
                 } else if (tests.test === 'test#3') {

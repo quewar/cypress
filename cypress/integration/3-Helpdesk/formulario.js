@@ -1,28 +1,59 @@
-var roles = [
+import {roles} from "./pruebas"
 
-    "ADM",
-    "UDA"
+const logo = [
+    'Mesa de Servicios{enter}',
+    'Solicitud de documentos{enter}',
+    "Requerimiento{enter}",
+    "Actualizacion{enter}",
+    "Solicitud de documentos{enter}",
+    "Examenes{enter}",
+    "Responsable servicio{enter}",
+    "AGENTE DE MESA{enter}",
+    "Media{enter}",
+    "Media{enter}"
 
 ]
-
-
 class formulario {
 
 
     elementsform() {
 
-        //cy.get('.cursor-pointer').click();
-        //cy.wait(2000);
-        //cy.get('.react-autosuggest__input').type('{enter}').then(nombres => {
-        //    cy.request('GET', '/')        //})
-        cy.get('div.widget-heading').eq(0).contains('AGENTE DE MESA').within((rol) => {
-            cy.get(rol)
-
-        })
-        cy.get('span').contains('ADM')
 
 
-        if (cy.log(roles[0]).contains('ADM') === "ADM") {
+        if (cy.get('@usuarios') == "AGENTE") {
+            cy.get('.form-group').within(() => {
+
+                cy.get('path').eq(2).click({ force: true })
+                cy.get('div.css-1g6gooi')
+                    .eq(2)
+                    .find('div.react-select__input').then(() => {
+                        for (var i = 4; i < 6; i++) {
+                            cy.wait(2000)
+                            cy.get('input')
+                                .eq(i)
+                                .type(logo[i - 4], { force: true })
+                            cy.wait(3000)
+                        }
+                    })
+            })
+            cy.get('.form-group').within(() => {
+
+                cy.get('path').eq(3).click({ force: true })
+                cy.get('div.css-1g6gooi').eq(2)
+                    .find('div.react-select__input').then(() => {
+                        for (var i = 6; i < 14; i++) {
+                            cy.wait(2000)
+                            cy.get('input')
+                                .eq(i)
+                                .type(logo[i - 4], { force: true })
+                            cy.wait(2000)
+                        }
+                    })
+            })
+
+
+        }else if(cy.get("@usuarios").contains('USUARIO') === "uSUARIO"){
+
             cy.get('.form-group').within(() => {
 
                 cy.get('path').eq(2).click({ force: true })
@@ -40,10 +71,12 @@ class formulario {
                         cy.wait(5000)
                     })
             })
-        } else {
+            
+        
+    }else {
 
-            cy.log('error')
-        }
+        cy.log('eror')
+    }
         /*cy.get('.btn-group > .btn-link').click({ force: true })
 
         cy.get('div.rm-pointers.dropdown-menu-lg.dropdown-menu.dropdown-menu-right.show').within(() => {
@@ -51,37 +84,6 @@ class formulario {
                 .click({ force: true })
 
         })*/
-
-
-
-
-        //.type('{insert}');
-        /* cy.wait(2000);
-         cy.get('.form-group').eq(7).click({ force: true }).type('Solicitud de documentos{enter}');
-         cy.wait(2000);
-         cy.get('.form-group').eq(8).click({ force: true }).type('Requerimiento{enter}');
-         cy.wait(2000);
-         cy.get('.form-group').eq(9).click({ force: true }).type('Actualizacion{enter}');
-         cy.wait(2000);
-         cy.get('.form-group').eq(10).click({ force: true }).type('Solicitud de documentos{enter}');
-         cy.wait(2000);
-         cy.get('.form-group').eq(11).click({ force: true }).type('Examenes{enter}');
-         cy.wait(2000);
-         cy.get('.form-group').eq(12).click({ force: true }).type('Responsable servicio{enter}');
-         cy.wait(2000);
-         cy.get('.form-group').eq(13).click({ force: true }).type('AGENTE DE MESA{enter}');
-         cy.wait(2000);
-         cy.get('.form-group').eq(14).click({ force: true }).type('Media{enter}');
-         cy.wait(2000);
-         cy.get('.form-group').eq(15).click({ force: true }).type('Media{enter}');
-         cy.wait(2000);
-         cy.get('.form-group').eq(16).should('have.text', 'PrioridadMedia');
-         cy.wait(2000);
-         cy.get('.form-group').eq(17).click({ force: true }).type('helppeople{enter}');
-         cy.wait(2000);
-         cy.get('.form-group').eq(18).click({ force: true }).type('{enter}');
-         cy.get('button.btn.btn-primary').eq(0).click({ force: true });
- */
     }
 }
 
